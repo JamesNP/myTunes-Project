@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:MyPlayer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <XmlDataProvider x:Key="Items" Source="Music.xml" XPath="Data/NumberID" />
+    </Window.Resources>
 
+    <Grid>
+        <ListBox HorizontalAlignment="Left" Width="250">
+            
+        </ListBox>
     </Grid>
 </Window>

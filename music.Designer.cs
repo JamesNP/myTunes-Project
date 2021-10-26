@@ -376,10 +376,6 @@ namespace MyPlayer {
             
             private global::System.Data.DataColumn columngenre;
             
-            private global::System.Data.DataColumn columnurl;
-            
-            private global::System.Data.DataColumn columnalbumimage;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public songDataTable() {
@@ -471,22 +467,6 @@ namespace MyPlayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn urlColumn {
-                get {
-                    return this.columnurl;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn albumImageColumn {
-                get {
-                    return this.columnalbumimage;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -522,7 +502,7 @@ namespace MyPlayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public songRow AddsongRow(string title, string artist, string album, string filename, string length, string genre, string url, string albumimage) {
+            public songRow AddsongRow(string title, string artist, string album, string filename, string length, string genre) {
                 songRow rowsongRow = ((songRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -531,9 +511,7 @@ namespace MyPlayer {
                         album,
                         filename,
                         length,
-                        genre,
-                        url,
-                        albumimage};
+                        genre};
                 rowsongRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsongRow);
                 return rowsongRow;
@@ -570,8 +548,6 @@ namespace MyPlayer {
                 this.columnfilename = base.Columns["filename"];
                 this.columnlength = base.Columns["length"];
                 this.columngenre = base.Columns["genre"];
-                this.columnurl = base.Columns["url"];
-                this.columnalbumimage = base.Columns["albumImage"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -591,13 +567,6 @@ namespace MyPlayer {
                 base.Columns.Add(this.columnlength);
                 this.columngenre = new global::System.Data.DataColumn("genre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngenre);
-                this.columnurl = new global::System.Data.DataColumn("url", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnurl);
-                this.columnalbumimage = new global::System.Data.DataColumn("albumImage", typeof(string), null, global::System.Data.MappingType.Element);
-                this.columnalbumimage.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "albumimage");
-                this.columnalbumimage.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnalbumimage");
-                this.columnalbumimage.ExtendedProperties.Add("Generator_UserColumnName", "albumImage");
-                base.Columns.Add(this.columnalbumimage);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("songKey1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1411,38 +1380,6 @@ namespace MyPlayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string url {
-                get {
-                    try {
-                        return ((string)(this[this.tablesong.urlColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'url\' in table \'song\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesong.urlColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string albumimage {
-                get {
-                    try {
-                        return ((string)(this[this.tablesong.albumImageColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'albumImage\' in table \'song\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesong.albumImageColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IstitleNull() {
                 return this.IsNull(this.tablesong.titleColumn);
             }
@@ -1511,30 +1448,6 @@ namespace MyPlayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetgenreNull() {
                 this[this.tablesong.genreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsurlNull() {
-                return this.IsNull(this.tablesong.urlColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SeturlNull() {
-                this[this.tablesong.urlColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsalbumimageNull() {
-                return this.IsNull(this.tablesong.albumImageColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetalbumimageNull() {
-                this[this.tablesong.albumImageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

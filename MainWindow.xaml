@@ -18,5 +18,20 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <!--<DataGrid x:Name="songsDataGrid" Margin="255,0,0,10" ItemsSource="{Binding}"/>-->
+        <Grid>
+            <Grid.Resources>
+                <XmlDataProvider x:Key="MovieData" Source="Movies.xml" XPath="/Movies/Movie"/>
+            </Grid.Resources>
+            <DataGrid x:Name="songsDataGrid" ItemsSource="{Binding}"
+                AutoGenerateColumns="False" Margin="252,10,0,10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Title" Binding="{Binding title}" />
+                    <DataGridTextColumn Header="Artist" Binding="{Binding artist}" />
+                    <DataGridTextColumn Header="Album" Binding="{Binding album}" />
+                    <DataGridTextColumn Header="Genre" Binding="{Binding genre}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>

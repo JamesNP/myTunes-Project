@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,7 @@ namespace MyPlayer
     {
         private readonly MusicRepo musicRepo;
         private readonly ObservableCollection<string> playlistNames;
+        private readonly System.Data.DataTable songs;
         public MainWindow()
         {
             InitializeComponent();
@@ -41,6 +44,9 @@ namespace MyPlayer
             playlistNames.Add("All Music");
             playlistNames.Move(playlistNames.Count - 1, 0);
             playlistListBox.ItemsSource = playlistNames;
+
+            songs = musicRepo.Songs;
+            songsDataGrid.ItemsSource = songs.DefaultView;
         }
         
     }

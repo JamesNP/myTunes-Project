@@ -6,13 +6,17 @@
         xmlns:local="clr-namespace:MyPlayer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <XmlDataProvider x:Key="Items" Source="Music.xml" XPath="Data/NumberID" />
-    </Window.Resources>
-
+    
+   
     <Grid>
-        <ListBox HorizontalAlignment="Left" Width="250">
-            
+        <ListBox x:Name="playlistListBox" HorizontalAlignment="Left" Width="250" ItemsSource="{Binding playlistNames}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </Window>

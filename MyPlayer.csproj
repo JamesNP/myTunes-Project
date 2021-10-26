@@ -16,14 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="music.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>music.xsd</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="music.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>music.Designer.cs</LastGenOutput>

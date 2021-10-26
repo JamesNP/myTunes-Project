@@ -40,6 +40,7 @@ namespace MyPlayer
                 return;
             }
 
+            //Puts all the playlist names into the ListBox
             playlistNames = new ObservableCollection<string>(musicRepo.Playlists);
             playlistNames.Add("All Music");
             playlistNames.Move(playlistNames.Count - 1, 0);
@@ -48,6 +49,22 @@ namespace MyPlayer
             songs = musicRepo.Songs;
             songsDataGrid.ItemsSource = songs.DefaultView;
         }
-        
+
+        //Displays songs in selected playlist
+        private void playlistListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedPlaylist = playlistListBox.SelectedItem as string;
+
+            if (selectedPlaylist == "All Music")
+            {
+                songsDataGrid.ItemsSource = songs.DefaultView;
+            }
+            else 
+            {
+                DataTable allPlaylistSongs = musicRepo.SongsForPlaylist(selectedPlaylist);
+                songsDataGrid.ItemsSource = allPlaylistSongs.DefaultView;
+            }
+            
+        }
     }
 }

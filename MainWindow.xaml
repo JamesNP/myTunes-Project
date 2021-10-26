@@ -7,9 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     
-   
     <Grid>
-        <ListBox x:Name="playlistListBox" HorizontalAlignment="Left" Width="250" ItemsSource="{Binding playlistNames}">
+        <ListBox x:Name="playlistListBox" HorizontalAlignment="Left" Width="250" SelectionChanged ="playlistListBox_SelectionChanged" ItemsSource="{Binding playlistNames}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

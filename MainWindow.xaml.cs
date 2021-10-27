@@ -84,5 +84,23 @@ namespace MyPlayer
         {
             mediaPlayer.Play();
         }
+
+        private void removeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void aboutToolButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void songToolButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void playlistToolButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

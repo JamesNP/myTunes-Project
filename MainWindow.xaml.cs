@@ -24,11 +24,14 @@ namespace MyPlayer
     public partial class MainWindow : Window
     {
         private readonly MusicRepo musicRepo;
+        private readonly MediaPlayer mediaPlayer;
         private readonly ObservableCollection<string> playlistNames;
         private readonly System.Data.DataTable songs;
         public MainWindow()
         {
             InitializeComponent();
+
+            mediaPlayer = new MediaPlayer();
 
             try
             {
@@ -65,6 +68,21 @@ namespace MyPlayer
                 songsDataGrid.ItemsSource = allPlaylistSongs.DefaultView;
             }
             
+        }
+
+        private void playButton_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Play();
+        }
+
+        private void stopButton_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Stop();
+        }
+
+        private void playMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Play();
         }
     }
 }

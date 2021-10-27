@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:MyPlayer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
+
     <Grid>
-        <ListBox x:Name="playlistListBox" HorizontalAlignment="Left" Width="250" SelectionChanged ="playlistListBox_SelectionChanged" ItemsSource="{Binding playlistNames}">
+        <ListBox x:Name="playlistListBox" HorizontalAlignment="Left" Width="250" SelectionChanged ="playlistListBox_SelectionChanged" ItemsSource="{Binding playlistNames}" Margin="0,0,0,56">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -23,7 +23,12 @@
                 <XmlDataProvider x:Key="MovieData" Source="Movies.xml" XPath="/Movies/Movie"/>
             </Grid.Resources>
             <DataGrid x:Name="songsDataGrid" ItemsSource="{Binding}"
-                AutoGenerateColumns="False" Margin="252,10,0,10">
+                AutoGenerateColumns="False" Margin="252,0,0,57" IsReadOnly="True">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Play" Click="playMenuItem_Click"/> 
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Title" Binding="{Binding title}" />
                     <DataGridTextColumn Header="Artist" Binding="{Binding artist}" />
@@ -31,6 +36,9 @@
                     <DataGridTextColumn Header="Genre" Binding="{Binding genre}" />
                 </DataGrid.Columns>
             </DataGrid>
+            
         </Grid>
+        <Button x:Name="playButton" Content="Play" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top" Height="20" Width="64" Click="playButton_Click"/>
+        <Button x:Name="stopButton" Content="Pause" HorizontalAlignment="Left" Margin="120,380,0,0" VerticalAlignment="Top" Height="20" Width="64" Click="stopButton_Click"/>
     </Grid>
 </Window>

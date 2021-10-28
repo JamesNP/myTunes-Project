@@ -8,6 +8,17 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Grid>
+        <ToolBar x:Name="mainToolBar" HorizontalAlignment="Center" Height="36" VerticalAlignment="Top" Width="800">
+            <Button ToolTip="Add Song" Click="addSongToolButton_Click">
+                <Image Source="Resources\add_song.png" />
+            </Button>
+            <Button ToolTip="Add Playlist" Click="addPlaylistToolButton_Click">
+                <Image Source="Resources\add-playlist.png" Margin="10,0,0,0" />
+            </Button>
+            <Button ToolTip="About" Click="aboutToolButton_Click">
+                <Image Source="Resources\question_mark.png" />
+            </Button>
+        </ToolBar>
         <ListBox x:Name="playlistListBox" HorizontalAlignment="Left" Width="250" SelectionChanged ="playlistListBox_SelectionChanged" ItemsSource="{Binding playlistNames}" Margin="0,36,0,56">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -37,20 +48,8 @@
                     <DataGridTextColumn Header="Genre" Binding="{Binding genre}" />
                 </DataGrid.Columns>
             </DataGrid>
-
         </Grid>
         <Button x:Name="playButton" Content="Play" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top" Height="20" Width="64" Click="playButton_Click"/>
         <Button x:Name="stopButton" Content="Stop" HorizontalAlignment="Left" Margin="120,380,0,0" VerticalAlignment="Top" Height="20" Width="64" Click="stopButton_Click"/>
-        <ToolBar x:Name="mainToolBar" HorizontalAlignment="Center" Height="36" VerticalAlignment="Top" Width="800">
-            <Button ToolTip="Add Playlist" Click="playlistToolButton_Click">
-                <Image Source="Resources\add_song.png" />
-            </Button>
-            <Button ToolTip="Add Song" Click="songToolButton_Click">
-                <Image Source="Resources\add-playlist.png" Margin="10,0,0,0" />
-            </Button>
-            <Button ToolTip="About" Click="aboutToolButton_Click">
-                <Image Source="Resources\question_mark.png" />
-            </Button>
-        </ToolBar>
     </Grid>
 </Window>

@@ -72,9 +72,10 @@ namespace MyPlayer
 
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
+            Song s = songsDataGrid.SelectedItem as Song;
+            mediaPlayer.Open(new Uri(s.Filename));
             mediaPlayer.Play();
         }
-
         private void stopButton_Click(object sender, RoutedEventArgs e)
         {
             mediaPlayer.Stop();
@@ -94,11 +95,23 @@ namespace MyPlayer
         {
 
         }
-        private void songToolButton_Click(object sender, RoutedEventArgs e)
+        private void addSongToolButton_Click(object sender, RoutedEventArgs e)
         {
+            var openFileDialog = new Microsoft.Win32.OpenFileDialog
+            {
+                FileName = "",
+                DefaultExt = "*.wma;*.wav;*mp3;*.m4a",
+                Filter = "Media files|*.mp3;*.m4a;*.wma;*.wav|MP3 (*.mp3)|*.mp3|M4A (*.m4a)|*.m4a|Windows Media Audio (*.wma)|*.wma|Wave files (*.wav)|*.wav|All files|*.*"
+            };
 
+            bool? result = openFileDialog.ShowDialog();
+            if (result == true)
+            {
+                Song tempSong = musicRepo.AddSong(openFileDialog.FileName);
+                songsDataGrid.SelectedItem = tempSong.Id;
+            }
         }
-        private void playlistToolButton_Click(object sender, RoutedEventArgs e)
+        private void addPlaylistToolButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

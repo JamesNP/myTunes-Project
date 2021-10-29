@@ -113,7 +113,17 @@ namespace MyPlayer
         }
         private void addPlaylistToolButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PlaylistWindow playlistWindow = new PlaylistWindow();
+            playlistWindow.ShowDialog();
+            string playlistName = playlistWindow.playlistName;
+            if (musicRepo.AddPlaylist(playlistName))
+            {
+                playlistNames.Add(playlistName);
+            }
+            else
+            {
+                MessageBox.Show("Playlist already exists, please try a different name.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

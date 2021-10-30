@@ -70,20 +70,23 @@ namespace MyPlayer
             
         }
 
-        private void playButton_Click(object sender, RoutedEventArgs e)
+        private void PlayCommand_Executed(object sender, RoutedEventArgs e)
         {
+            //This isn't working
+            //How do you get info like song Id out of the data grid?
             Song s = songsDataGrid.SelectedItem as Song;
             mediaPlayer.Open(new Uri(s.Filename));
             mediaPlayer.Play();
         }
-        private void stopButton_Click(object sender, RoutedEventArgs e)
+
+        private void StopCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             mediaPlayer.Stop();
         }
 
         private void playMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            mediaPlayer.Play();
+           
         }
 
         private void removeMenuItem_Click(object sender, RoutedEventArgs e)
@@ -125,5 +128,7 @@ namespace MyPlayer
                 MessageBox.Show("Playlist already exists, please try a different name.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
+        
     }
 }

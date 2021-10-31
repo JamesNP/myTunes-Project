@@ -31,7 +31,7 @@
 
     <Window.CommandBindings>
         <CommandBinding Command="MediaCommands.Play" Executed="PlayCommand_Executed" />
-        <CommandBinding Command="MediaCommands.Stop" Executed="StopCommand_Executed"  />
+        <CommandBinding Command="MediaCommands.Stop" Executed="StopCommand_Executed"  CanExecute="Stop_CanExecute"/>
     </Window.CommandBindings>
 
     <Grid>
@@ -46,11 +46,12 @@
                 <Image Source="Resources\question_mark.png" />
             </Button>
         </ToolBar>
-        <ListBox x:Name="playlistListBox" HorizontalAlignment="Left" Width="250" SelectionChanged ="playlistListBox_SelectionChanged" ItemsSource="{Binding playlistNames}" Margin="0,36,0,56">
+        <ListBox x:Name="playlistListBox" HorizontalAlignment="Left" Width="250" SelectionChanged ="playlistListBox_SelectionChanged" 
+                 ItemsSource="{Binding playlistNames}" Margin="0,36,0,56">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding}" />
+                        <Label Content="{Binding}" AllowDrop="True" DragOver="playlistListBox_DragOver" Drop="playlistListBox_Drop"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -60,8 +61,8 @@
             <Grid.Resources>
                 <XmlDataProvider x:Key="MovieData" Source="Movies.xml" XPath="/Movies/Movie"/>
             </Grid.Resources>
-            <DataGrid x:Name="songsDataGrid" ItemsSource="{Binding}"
-                AutoGenerateColumns="False" Margin="252,36,0,57" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid x:Name="songsDataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" MouseMove="songsDataGrid_MouseMove" PreviewMouseLeftButtonDown="songsDataGrid_PreviewMouseLeftButtonDown"
+                      Margin="252,36,0,57" IsReadOnly="True" SelectionMode="Single">
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Play" Click="playMenuItem_Click"/>
@@ -76,7 +77,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <Button x:Name="stopButton" Content="Stop" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,14"  Height="20" Width="64" Template="{StaticResource MyButtonTemplate}" Command="Stop"/>
         <Button x:Name="playButton" Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,14" Height="20" Width="64"  Template="{StaticResource MyButtonTemplate}" Command="Play"/>
+        <Button x:Name="stopButton" Content="Stop" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,14"  Height="20" Width="64" Template="{StaticResource MyButtonTemplate}" Command="Stop"/>
     </Grid>
 </Window>

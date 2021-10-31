@@ -30,8 +30,8 @@
     </Window.Resources>
 
     <Window.CommandBindings>
-        <CommandBinding Command="MediaCommands.Play" Executed="PlayCommand_Executed" />
-        <CommandBinding Command="MediaCommands.Stop" Executed="StopCommand_Executed"  CanExecute="Stop_CanExecute"/>
+        <CommandBinding Command="Play" Executed="PlayCommand_Executed" CanExecute="PlayCommand_CanExecute"/>
+        <CommandBinding Command="Stop" Executed="StopCommand_Executed"  CanExecute="StopCommand_CanExecute"/>
     </Window.CommandBindings>
 
     <Grid>

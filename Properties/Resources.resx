@@ -124,6 +124,9 @@
   <data name="add_song" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_song.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="music_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\music_icon.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="question_mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question_mark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

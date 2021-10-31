@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\music_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,7 @@
     <None Remove="README.md" />
     <None Remove="Resources\add-playlist.png" />
     <None Remove="Resources\add_song.png" />
+    <None Remove="Resources\music_icon.ico" />
     <None Remove="Resources\question_mark.png" />
   </ItemGroup>
 
@@ -21,6 +23,7 @@
   <ItemGroup>
     <Resource Include="Resources\add-playlist.png" />
     <Resource Include="Resources\add_song.png" />
+    <Resource Include="Resources\music_icon.ico" />
     <Resource Include="Resources\question_mark.png" />
   </ItemGroup>
 

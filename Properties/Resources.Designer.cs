@@ -83,6 +83,16 @@ namespace MyPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] music_icon {
+            get {
+                object obj = ResourceManager.GetObject("music_icon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] question_mark {
             get {
                 object obj = ResourceManager.GetObject("question_mark", resourceCulture);

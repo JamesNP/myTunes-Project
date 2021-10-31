@@ -86,20 +86,38 @@ namespace MyPlayer
             songPlaying = true;
         }
 
+        private void PlayCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (songsDataGrid.SelectedItems.Count > 0)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
+
         private void StopCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             songPlaying = false;
             mediaPlayer.Stop();
         }
 
-        private void Stop_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void StopCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = songPlaying;
         }
 
         private void playMenuItem_Click(object sender, RoutedEventArgs e)
         {
-           
+            var temp = songsDataGrid.SelectedItem as DataRowView;
+            int songId = Convert.ToInt32(temp.Row.ItemArray[0]);
+            Song s = musicRepo.GetSong(songId);
+
+            mediaPlayer.Open(new Uri(s.Filename));
+            mediaPlayer.Play();
+            songPlaying = true;
         }
 
         private void removeMenuItem_Click(object sender, RoutedEventArgs e)
@@ -132,11 +150,12 @@ namespace MyPlayer
             PlaylistWindow playlistWindow = new PlaylistWindow();
             playlistWindow.ShowDialog();
             string playlistName = playlistWindow.playlistName;
+
             if (musicRepo.AddPlaylist(playlistName))
             {
                 playlistNames.Add(playlistName);
             }
-            else
+            else if (playlistName != null)
             {
                 MessageBox.Show("Playlist already exists, please try a different name.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
             }

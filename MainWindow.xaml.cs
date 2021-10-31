@@ -74,7 +74,10 @@ namespace MyPlayer
         {
             //This isn't working
             //How do you get info like song Id out of the data grid?
-            Song s = songsDataGrid.SelectedItem as Song;
+            var temp = songsDataGrid.SelectedItem as DataRowView;
+            int songId = Convert.ToInt32(temp.Row.ItemArray[0]);
+            Song s = musicRepo.GetSong(songId);
+
             mediaPlayer.Open(new Uri(s.Filename));
             mediaPlayer.Play();
         }

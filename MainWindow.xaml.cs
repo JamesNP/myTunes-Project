@@ -127,7 +127,8 @@ namespace MyPlayer
 
         private void aboutToolButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AboutDialog aboutDialog = new AboutDialog();
+            aboutDialog.Show();
         }
         private void addSongToolButton_Click(object sender, RoutedEventArgs e)
         {

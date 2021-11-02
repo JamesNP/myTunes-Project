@@ -30,11 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="music.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>music.xsd</DependentUpon>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -50,13 +45,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="music.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="music.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>music.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

@@ -8,12 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
-
-        <DataTemplate x:Key="CustomerDetail">
-            <Border BorderThickness="0" Background="BlanchedAlmond" Padding="10">
-            </Border>
-        </DataTemplate>
-        
         <ControlTemplate x:Key="MyButtonTemplate" TargetType="Button">
             <Border Name="Border" BorderThickness="1" BorderBrush="Black" Background="LightGray">
                 <ContentPresenter HorizontalAlignment="Center"
@@ -81,33 +75,6 @@
                     <DataGridTextColumn Header="Album" Binding="{Binding album}" />
                     <DataGridTextColumn Header="Genre" Binding="{Binding genre}" />
                 </DataGrid.Columns>
-                <DataGrid.RowDetailsTemplate>
-                    <DataTemplate>
-                        <DockPanel Background="GhostWhite">
-                            <Image DockPanel.Dock="Left" Source="{Binding ImageUrl}" Height="64" Margin="10" />
-                            <Grid Margin="0,10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-
-                                <TextBlock Text="Title: " FontWeight="Bold" />
-                                <TextBlock Text="{Binding title}" Grid.Column="1" />
-                                <TextBlock Text="Artist: " FontWeight="Bold" Grid.Row="1" />
-                                <TextBlock Text="{Binding artist}" Grid.Column="1" Grid.Row="1" />
-                                <TextBlock Text="Lenght: " FontWeight="Bold" Grid.Row="2" />
-                                <TextBlock Text="{Binding length}" Grid.Column="1" Grid.Row="2" />
-
-
-                            </Grid>
-                        </DockPanel>
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>
             </DataGrid>
         </Grid>
         <Button x:Name="playButton" Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,14" Height="20" Width="64"  Template="{StaticResource MyButtonTemplate}" Command="Play"/>

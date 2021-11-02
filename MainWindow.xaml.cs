@@ -126,21 +126,32 @@ namespace MyPlayer
         {
             var temp = songsDataGrid.SelectedItem as DataRowView;
             int songId = Convert.ToInt32(temp.Row.ItemArray[0]);
-            Song s = musicRepo.GetSong(songId);
             string selectedPlaylist = playlistListBox.SelectedItem as string;
             int position = musicRepo.GetLastPosition(selectedPlaylist);
+            DataTable allPlaylistSongs = musicRepo.SongsForPlaylist(selectedPlaylist);
 
             if (selectedPlaylist != "All Music")
             {
                 musicRepo.RemoveSongFromPlaylist(position,
                         songId, selectedPlaylist);
+                songsDataGrid.ItemsSource = allPlaylistSongs.DefaultView;
             }
             else
             {
                 musicRepo.DeleteSong(songId);
+                songsDataGrid.ItemsSource = songs.DefaultView;
             }
 
+        }
 
+        private void SearchTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            DataView dataView = musicRepo.Songs.DefaultView;
+            dataView.RowFilter = "artist LIKE '%" + searchTextBox.Text +
+                "%' OR title LIKE '%" + searchTextBox.Text +
+                "%' OR album LIKE '%" + searchTextBox.Text +
+                "%' OR genre LIKE '%" + searchTextBox.Text + "%'";
+            songsDataGrid.DataContext = dataView;
         }
 
         private void aboutToolButton_Click(object sender, RoutedEventArgs e)

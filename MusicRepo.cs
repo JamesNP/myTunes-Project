@@ -349,7 +349,7 @@ namespace MyPlayer
         /// </summary>
         /// <param name="playlist"></param>
         /// <returns></returns>
-        private int GetLastPosition(string playlist)
+        public int GetLastPosition(string playlist)
         {
             Console.WriteLine("playlist=" + playlist);
             DataTable table = musicDataSet.Tables["playlist_song"];

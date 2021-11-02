@@ -65,11 +65,13 @@ namespace MyPlayer
             if (selectedPlaylist == "All Music")
             {
                 songsDataGrid.ItemsSource = songs.DefaultView;
+                headerRemove.Header = "Remove";
             }
-            else 
+            else
             {
                 DataTable allPlaylistSongs = musicRepo.SongsForPlaylist(selectedPlaylist);
                 songsDataGrid.ItemsSource = allPlaylistSongs.DefaultView;
+                headerRemove.Header = "Remove from Playlist";
             }
             
         }
@@ -122,6 +124,22 @@ namespace MyPlayer
 
         private void removeMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            var temp = songsDataGrid.SelectedItem as DataRowView;
+            int songId = Convert.ToInt32(temp.Row.ItemArray[0]);
+            Song s = musicRepo.GetSong(songId);
+            string selectedPlaylist = playlistListBox.SelectedItem as string;
+            int position = musicRepo.GetLastPosition(selectedPlaylist);
+
+            if (selectedPlaylist != "All Music")
+            {
+                musicRepo.RemoveSongFromPlaylist(position,
+                        songId, selectedPlaylist);
+            }
+            else
+            {
+                musicRepo.DeleteSong(songId);
+            }
+
 
         }
 

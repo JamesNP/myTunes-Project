@@ -109,7 +109,7 @@
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>
             </DataGrid>
-            <TextBox x:Name="searchTextBox" HorizontalAlignment="Left" Margin="632,10,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="searchTextBox" HorizontalAlignment="Left" Margin="632,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged ="SearchTextBox_TextChanged"/>
         </Grid>
         <Button x:Name="playButton" Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,14" Height="20" Width="64"  Template="{StaticResource MyButtonTemplate}" Command="Play"/>
         <Button x:Name="stopButton" Content="Stop" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,14"  Height="20" Width="64" Template="{StaticResource MyButtonTemplate}" Command="Stop"/>

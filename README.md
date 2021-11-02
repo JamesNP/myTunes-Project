@@ -8,9 +8,17 @@ WPF application that allows a user to organize and play songs.  Audio files can 
 
 ## James' Features (50%)
 - Procrastination penalty #1
+- Show Songs in Grid
+- Playlist functionality
+- Play/Stop function
+- Toolbar
 
 ## Jair's Features (50%)
 - Procrastination penalty #2
+- About Dialog
+- Remove songs playlist/all
+- Details Pane
+- Search string (extra credit)
 
 ## Tech
 
